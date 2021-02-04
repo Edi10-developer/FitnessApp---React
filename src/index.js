@@ -7,33 +7,9 @@ container.appendChild(element);
 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const user = {
-  firstName: 'Edi',
-  lastName: 'Selimi',
-}
-
-function getName(user){
-  return `${user.firstName} ${user.lastName}`;
-}
-
-
-function getGreeting(user){
-  if(user){
-    <h1>Hello {getName(user)}</h1>
-  }
-  return <h1>Hello Stranger</h1>
-}
-
-const element = (
-  <div>
-    <h1>
-      {getGreeting(user)}
-    </h1>
-  </div>
-)
+import Card from './components/Card';
+import 'boostrap/dist/css/boostrap.css';
 const container = document.getElementById('root');
 
 //ReactDOM.render( __que__, __donde__)
-
-ReactDOM.render(element, container);
+ReactDOM.render(<Card/>, container);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ExerciseList from "../components/ExerciseList";
 import Welcome from "../components/Welcome";
 import Button from "./../components/Button";
+//import APIREST from '../../REST_API/index';
 
 class Exercise extends React.Component {
   state = {
@@ -35,6 +36,13 @@ class Exercise extends React.Component {
       },
     ],
   };
+componentDidMount(){
+
+  fetch('http://localhost:2000/api/exercises')
+  .then(response => response.json())
+  .then(data => console.log(data))
+}
+
 
   render() {
     return (

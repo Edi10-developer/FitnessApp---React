@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import ExerciseList from "../components/ExerciseList";
 import Welcome from "../components/Welcome";
 import Button from "./../components/Button";
-//import APIREST from '../../REST_API/index';
+import Loading from '../components/Loading';
 
 class Exercise extends React.Component {
   state = {
     data: [
+      
       {
         id: 1,
         title: "Technique Guides",
@@ -34,17 +35,36 @@ class Exercise extends React.Component {
         leftColor: "#FAD961",
         rightColor: "#F76B1C",
       },
+      
     ],
+    loading: true,
+    error: null
   };
-componentDidMount(){
-
-  fetch('http://localhost:2000/api/exercises')
-  .then(response => response.json())
-  .then(data => console.log(data))
+   /*
+async componentDidMount(){
+  await this.fetchExercises()
 }
+
+fetchExercises = async () => {
+  let res = await fetch('http://localhost:2000/api/exercises');
+  let data = await res.json();
+
+  this.setState({
+    data
+  });
+  console.log(data);
+}
+ 
+  fetch('https://github.com/Edi10-developer/FitnessApp---React/blob/master/REST_API/data.json')
+  .then(response => response.json())
+  .then(data => console.log('data'))
+  */
 
 
   render() {
+    setTimeout(() => {
+      <Loading/>
+    }, 3);
     return (
       <div>
         <Welcome username="Edi" />
